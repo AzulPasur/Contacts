@@ -1,13 +1,13 @@
 package com.hadon.guantong.model;
 
 public class Contact {
-	private int id;			//主键
-	private String name;	//姓名
-	private boolean sex;	//性别
-	private String dept;	//部门
-	private String post;	//职务
-	private String mobile;	//手机号
-	private String email;	//邮箱
+	private int id;			//涓婚敭
+	private String name;	//濮撳悕
+	private boolean sex;	//鎬у埆
+	private String dept;	//閮ㄩ棬
+	private String post;	//鑱屽姟
+	private String mobile;	//鎵嬫満
+	private String email;	//閭
 	public int getId() {
 		return id;
 	}

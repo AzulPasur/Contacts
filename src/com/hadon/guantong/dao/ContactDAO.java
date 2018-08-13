@@ -5,16 +5,16 @@ import java.util.List;
 import com.hadon.guantong.model.Contact;
 
 public interface ContactDAO {
-	//Ôö¼ÓÁªÏµÈËĞÅÏ¢
+	//å¢åŠ è”ç³»äººä¿¡æ¯
     public int addContact(Contact contact);
-    //Í¨¹ıĞÕÃû²éÕÒÁªÏµÈËĞÅÏ¢
+	//é€šè¿‡å§“åæŸ¥æ‰¾è”ç³»äººä¿¡æ¯
     public List<Contact> findContactsByName(String name);
-	//Í¨¹ıÊÖ»úºÅ²éÕÒÁªÏµÈËĞÅÏ¢
+	//é€šè¿‡æ‰‹æœºå·æŸ¥æ‰¾è”ç³»äººä¿¡æ¯
     public Contact findContactByMobile(String mobile);
-	//²éÕÒËùÓĞÁªÏµÈËĞÅÏ¢
+	//æŸ¥æ‰¾æ‰€æœ‰è”ç³»äººä¿¡æ¯
     public List<Contact> findContacts();
-    //ĞŞ¸ÄÁªÏµÈËĞÅÏ¢
+	//ä¿®æ”¹è”ç³»äººä¿¡æ¯
     public int updateContact(Contact contact);
-    //Í¨¹ıidÉ¾³ıÁªÏµÈË
+	//é€šè¿‡idåˆ é™¤è”ç³»äºº
     public int deleteContact(int id); 
 }

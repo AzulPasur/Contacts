@@ -9,22 +9,22 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hadon.guantong.model.Contact;
 import com.hadon.guantong.service.ContactService;
 
 /*
-Ä¬ÈÏÎªsingletonµ¥ÀıÄ£Ê½£¬¶ÔÓ¦ÅäÖÃÖĞµÄ<bean scope="prototype"/>
+é»˜è®¤ä¸ºsingletonå•ä¾‹æ¨¡å¼ï¼Œå¯¹åº”é…ç½®ä¸­çš„<bean scope="prototype"/>
  */
 @Scope(value = "prototype")
 /*
-ÇëÇóÓ³Éä£¬Á´½ÓµØÖ·µÚÒ»²ãÂú×ãÖ¸¶¨µÄvalueÔò½øÈëÕâ¸ö¿ØÖÆÀàÖĞµÄ·½·¨
+è¯·æ±‚æ˜ å°„ï¼Œé“¾æ¥åœ°å€ç¬¬ä¸€å±‚æ»¡è¶³æŒ‡å®šçš„valueåˆ™è¿›å…¥è¿™ä¸ªæ§åˆ¶ç±»ä¸­çš„æ–¹æ³•
  */
 @RequestMapping(value = "/contacts")
 /*
-Ö¸¶¨µ±Ç°ÀàÎª¿ØÖÆÀà£¬value¿ÉÒÔÖØÃüÃû£¨ÎŞ·¨×Ô¶¯×°Åä£©
-²»Ê¹ÓÃ×¢½âÊ±£¬ĞèÊµÏÖorg.springframework.web.servlet.mvc.Controller½Ó¿Ú
+æŒ‡å®šå½“å‰ç±»ä¸ºæ§åˆ¶ç±»ï¼Œvalueå¯ä»¥é‡å‘½åï¼ˆæ— æ³•è‡ªåŠ¨è£…é…ï¼‰
+ä¸ä½¿ç”¨æ³¨è§£æ—¶ï¼Œéœ€å®ç°org.springframework.web.servlet.mvc.Controlleræ¥å£
  */
 @Controller
 public class ContactController {
