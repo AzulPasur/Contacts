@@ -3,13 +3,14 @@ package com.hadon.guantong.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hadon.guantong.model.Contact;
 import com.hadon.guantong.service.ContactService;
@@ -32,10 +33,10 @@ public class ContactController {
     private ContactService contactService;
 	
 	
-	@RequestMapping(value = "/show", method = RequestMethod.GET)
-    public String showContacts(HttpServletRequest request) {
+	@RequestMapping(value = "/show")
+    public @ResponseBody List<Contact> showContacts() {
 		List<Contact> contacts = contactService.showContacts();
-		request.setAttribute("contacts", contacts);
-        return "index";
+		//request.setAttribute("contacts", contacts);
+        return contacts;
     }
 }
