@@ -8,41 +8,37 @@
 		<link rel="stylesheet" href="css/bootstrap.css" />
 	</head>
 	<body>
-		<div class="row">
-			<div class="col offset-1">
-				<div class="d-flex text-white">
-					<form class="form-search">
-						<div class="input-group">
-							<input class="input-medium search-query" type="text" placeholder="请输入员工姓名或手机号"/>
-							<div class="input-group-append">
-							<button type="submit" class="btn btn-info">搜索</button>
-							</div>
-						</div>
-					</form>
-					<div class="btn-group ml-2">
-					 	<button class="btn btn-info" type="button">新增</button>
-						<button class="btn btn-info" type="button" disabled>修改</button>
-						<button class="btn btn-info" type="button" disabled>删除</button>
+		<div class="d-flex p-2 text-white bg-primary">
+			<form class="form-inline ml-5">
+				<div class="input-group">
+					<input class="form-control" type="text" placeholder="请输入员工姓名或手机号"/>
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-primary">搜索</button>
 					</div>
 				</div>
+			</form>
+			<div class="btn-group ml-2">
+			 	<button class="btn btn-primary" type="button">新增</button>
+				<button class="btn btn-primary" type="button" disabled>修改</button>
+				<button class="btn btn-primary" type="button" disabled>删除</button>
 			</div>
-			<div class="col-1"></div>
 		</div>
-		<div class="row">
-			<div class="col offset-1">
-				<table class="table">
-					<tr>
-						<th>姓名</th>
-						<th>性别</th>
-						<th>部门</th>
-						<th>职务</th>
-						<th>手机</th>
-						<th>邮箱</th>
-  					</tr>		
+		<div class="d-flex">
+			<div class="flex-grow-1 mx-5">
+				<table class="table table-hover">
+					<thead class="thead-light">
+						<tr>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>部门</th>
+							<th>职务</th>
+							<th>手机</th>
+							<th>邮箱</th>
+						</tr>
+					</thead>	
 				</table>
 			</div>
-			<div class="col-1"></div>
-		</div>
+		</div>		
 		<script>
 			$.ajax({
 				url :"/Contacts/show",
@@ -52,6 +48,7 @@
 				data :{},
 				contentType : "application/json; charset=utf-8",
 				success :function(data){
+					$("table").append("<tbody>");
 					$.each(data,function(n,obj){
 						var tr = "<tr>";
 							$.each(obj,function(name,value){
@@ -68,6 +65,7 @@
 						tr += "</tr>";
 						$("table").append(tr);
 					});
+					$("table").append("</tbody>");
 				}
 			});
 		</script>
