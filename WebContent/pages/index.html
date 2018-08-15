@@ -5,32 +5,32 @@
 		<title>员工通讯录</title>
 		<script src="js/jquery-3.3.1.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/contacts.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.css" />
 	</head>
 	<body>
-		<div class="row">
-			<div class="col offset-1">
-				<div class="d-flex text-white">
-					<form class="form-search">
-						<div class="input-group">
-							<input class="input-medium search-query" type="text" placeholder="请输入员工姓名或手机号"/>
-							<div class="input-group-append">
-							<button type="submit" class="btn btn-info">搜索</button>
-							</div>
-						</div>
-					</form>
-					<div class="btn-group ml-2">
-					 	<button class="btn btn-info" type="button">新增</button>
-						<button class="btn btn-info" type="button" disabled>修改</button>
-						<button class="btn btn-info" type="button" disabled>删除</button>
+		<div class="d-flex p-2 text-white bg-primary">
+			<form class="form-inline ml-5">
+				<div class="input-group">
+					<input class="form-control border" type="text" placeholder="请输入员工姓名或手机号"/>
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-primary border">
+							<svg viewBox="-1 -1 10 10" width="20" height="20">
+								<path d="M3.5 0c-1.927 0-3.5 1.573-3.5 3.5s1.573 3.5 3.5 3.5c.592 0 1.166-.145 1.656-.406a1 1 0 0 0 .125.125l1 1a1.016 1.016 0 1 0 1.438-1.438l-1-1a1 1 0 0 0-.156-.125c.266-.493.438-1.059.438-1.656 0-1.927-1.573-3.5-3.5-3.5zm0 1c1.387 0 2.5 1.113 2.5 2.5 0 .661-.241 1.273-.656 1.719-.01.011-.021.021-.031.031a1 1 0 0 0-.125.125c-.442.397-1.043.625-1.688.625-1.387 0-2.5-1.113-2.5-2.5s1.113-2.5 2.5-2.5z" stroke="white" fill="white"></path>
+							</svg>
+						</button>
 					</div>
 				</div>
+			</form>
+			<div class="btn-group ml-2">
+			 	<button class="btn btn-primary" type="button">新增</button>
+				<button class="btn btn-primary" type="button" disabled>修改</button>
+				<button class="btn btn-primary" type="button" disabled>删除</button>
 			</div>
-			<div class="col-1"></div>
 		</div>
-		<div class="row">
-			<div class="col offset-1">
-				<table class="table">
+		<div class="d-flex mx-5">
+			<table class="table table-hover">
+				<thead class="thead-light">
 					<tr>
 						<th>姓名</th>
 						<th>性别</th>
@@ -38,10 +38,18 @@
 						<th>职务</th>
 						<th>手机</th>
 						<th>邮箱</th>
-  					</tr>		
-				</table>
-			</div>
-			<div class="col-1"></div>
+  					</tr>
+  				</thead>		
+			</table>
+		</div>
+		<div class="d-flex justify-content-center">
+			<ul class="pagination">
+  				<li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
+ 				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+ 				<li class="page-item"><a class="page-link" href="#">下一页</a></li>
+			</ul>
 		</div>
 		<script>
 			$.ajax({
@@ -52,22 +60,29 @@
 				data :{},
 				contentType : "application/json; charset=utf-8",
 				success :function(data){
+					$("table").append("<tbody>");
 					$.each(data,function(n,obj){
-						var tr = "<tr>";
-							$.each(obj,function(name,value){
-								var th;
-								if(name=="id"){
-									th = "<td hidden>" + value + "</td>";return true;
-								} 
-								if(name=="sex") {
-									value=value?"男":"女";
-								}
-								th = "<td>" + value + "</td>";
-								tr += th;
-							});
+						var tr;
+						if(n<10){
+							tr = "<tr>";
+						} else {
+							tr = "<tr hidden>"
+						}						 
+						$.each(obj,function(name,value){
+							var th;
+							if(name=="id"){
+								th = "<td hidden>" + value + "</td>";return true;
+							} 
+							if(name=="sex") {
+								value=value?"男":"女";
+							}
+							th = "<td>" + value + "</td>";
+							tr += th;
+						});
 						tr += "</tr>";
 						$("table").append(tr);
 					});
+					$("table").append("</tbody>");
 				}
 			});
 		</script>
