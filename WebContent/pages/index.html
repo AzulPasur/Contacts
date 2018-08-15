@@ -10,9 +10,9 @@
 	</head>
 	<body>
 		<div class="d-flex p-2 text-white bg-primary">
-			<form class="form-inline ml-5">
+			<form class="form-inline ml-5" id="search" method="get" onsubmit="findContacts(wd)">
 				<div class="input-group">
-					<input class="form-control border" type="text" placeholder="请输入员工姓名或手机号"/>
+					<input class="form-control border" type="text" placeholder="请输入员工姓名或手机号" id="wd"/>
 					<div class="input-group-append">
 						<button type="submit" class="btn btn-primary border">
 							<svg viewBox="-1 -1 10 10" width="20" height="20">
@@ -85,6 +85,52 @@
 					$("table").append("</tbody>");
 				}
 			});
+			function findContacts(wd){
+				wd = wd.value;
+				alert(wd);
+				$.ajax({
+					url :"/Contacts/find",
+					async :true,
+					type :"post",
+					datatype :"json",
+					data :{keyWord : wd},
+					//contentType : "application/json; charset=utf-8",
+					success :function(data){
+						console.log("success");
+						$("table").empty();
+						$("table").append("<tbody>");
+						$.each(data,function(n,obj){
+							var tr;
+							if(n<10){
+								tr = "<tr>";
+							} else {
+								tr = "<tr hidden>"
+							}						 
+							$.each(obj,function(name,value){
+								var th;
+								if(name=="id"){
+									th = "<td hidden>" + value + "</td>";return true;
+								} 
+								if(name=="sex") {
+									value=value?"男":"女";
+								}
+								th = "<td>" + value + "</td>";
+								tr += th;
+							});
+							tr += "</tr>";
+							$("table").append(tr);
+						});
+						$("table").append("</tbody>");
+					},
+					error :function(XMLHttpRequest, textStatus){
+						console.log("error");
+					},
+					complete :function(XMLHttpRequest,textStatus){
+						console.log("complete");
+					}
+				});
+				return false;
+			}
 		</script>
 	</body>
 </html>
