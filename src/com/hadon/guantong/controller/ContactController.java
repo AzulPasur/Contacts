@@ -7,8 +7,9 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,7 +37,14 @@ public class ContactController {
 	@RequestMapping(value = "/show")
     public @ResponseBody List<Contact> showContacts() {
 		List<Contact> contacts = contactService.showContacts();
-		//request.setAttribute("contacts", contacts);
+        return contacts;
+    }
+	
+	@RequestMapping(value = "/find")
+	public @ResponseBody List<Contact> findContacts(String keyWord) {
+		System.out.println(keyWord);
+		List<Contact> contacts = contactService.findContactsByName(keyWord);
+		System.out.println(contacts.get(0).getMobile());
         return contacts;
     }
 }
