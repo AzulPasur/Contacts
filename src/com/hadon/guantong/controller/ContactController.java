@@ -42,9 +42,9 @@ public class ContactController {
 	
 	@RequestMapping(value = "/find")
 	public @ResponseBody List<Contact> findContacts(String keyWord) {
-		System.out.println(keyWord);
 		List<Contact> contacts = contactService.findContactsByName(keyWord);
-		System.out.println(contacts.get(0).getMobile());
+		contacts.add(contactService.findContactByMobile(keyWord));
+		contacts.remove(null);
         return contacts;
     }
 }
