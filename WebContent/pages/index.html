@@ -5,7 +5,7 @@
 		<title>员工通讯录</title>
 		<script src="js/jquery-3.3.1.js"></script>
 		<script src="js/bootstrap.js"></script>
-		<script src="js/contacts.js"></script>
+		<script src="js/contacts.js"></script>		
 		<link rel="stylesheet" href="css/bootstrap.css" />
 	</head>
 	<body>
@@ -29,20 +29,11 @@
 			</div>
 		</div>
 		<div class="d-flex mx-5">
-			<table class="table table-hover">
-			</table>
+			<div class="flex-grow-1" id="tableList"></div>
 		</div>
 		<div class="d-flex justify-content-center">
-			<ul class="pagination">
-  				<li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
-				<li class="page-item active"><a class="page-link" href="#">1</a></li>
- 				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
- 				<li class="page-item"><a class="page-link" href="#">下一页</a></li>
-			</ul>
+			<ul class="pagination"></ul>
 		</div>
-		<script>
-			
-		</script>
+		<script src="js/paging.js"></script>
 	</body>
 </html>
