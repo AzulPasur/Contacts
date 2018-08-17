@@ -4,6 +4,15 @@
 
 //页面初始化
 $("#wd").val("");
+$("option").click(function(){
+	$("select").removeAttr("size");
+	$("select").blur();
+	//$(this).attr("selected","");
+});
+
+$("select").focus(function(){
+	$("select").attr("size","5");
+})
 $.ajax({
 	url :"/Contacts/show",
 	async :true,
@@ -23,7 +32,7 @@ function findContacts(wd){
 	$.ajax({
 		url :"/Contacts/find",
 		async :true,
-		type :"post",
+		type :"get",
 		datatype :"json",
 		data :{keyWord : wd},
 		success :function(data){
@@ -44,6 +53,21 @@ function findContacts(wd){
 			console.log(textStatus);
 		}
 	});
+}
+
+//新增联系人
+function addContact(){
+	/*$("[contenteditable]").removeAttr("contenteditable");
+	currentTable = $("#table" + activePage);
+	currentTable.children("tbody").append("<tr contenteditable>" +
+		"<td>姓名</td>" +
+		"<td>性别</td>" +
+		"<td>部门</td>" +
+		"<td>职务</td>" +
+		"<td>手机</td>" +
+		"<td>邮箱</td>" +
+	"</tr>");*/
+	
 }
 
 //构建表格
@@ -75,12 +99,12 @@ function buildTable(data, tableList){
 		$.each(obj,function(name,value){
 			var td;
 			if(name=="id"){
-				tr += "<td hidden>" + value + "</td>";return true;//联系人的id被隐藏
+				tr += "<td id='id' hidden>" + value + "</td>";return true;//联系人的id被隐藏
 			} 
 			if(name=="sex") {
 				value=value?"男":"女";
 			}
-			td = "<td>" + value + "</td>";
+			td = "<td id='"+name+"'>" + value + "</td>";
 			tr += td;
 		});
 		tr += "</tr>";

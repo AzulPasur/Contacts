@@ -5,11 +5,12 @@
 		<title>员工通讯录</title>
 		<script src="js/jquery-3.3.1.js"></script>
 		<script src="js/bootstrap.js"></script>
-		<script src="js/contacts.js"></script>		
+				
 		<link rel="stylesheet" href="css/bootstrap.css" />
 	</head>
 	<body>
-		<div class="d-flex p-2 text-white bg-primary">
+		<!-- 导航栏 -->
+		<div class="d-flex p-2 text-white bg-primary fixed-top">
 			<form class="form-inline ml-5" id="search" method="get" onsubmit="findContacts(wd)">
 				<div class="input-group">
 					<input class="form-control border" type="text" placeholder="请输入员工姓名或手机号" id="wd"/>
@@ -23,17 +24,109 @@
 				</div>
 			</form>
 			<div class="btn-group ml-2">
-			 	<button class="btn btn-primary" type="button">新增</button>
-				<button class="btn btn-primary" type="button" disabled>修改</button>
-				<button class="btn btn-primary" type="button" disabled>删除</button>
+			 	<button class="btn btn-primary" type="button" id="new" data-toggle="modal" data-target="#newModal">新增</button>
+				<button class="btn btn-primary" type="button" id="modify" disabled>修改</button>
+				<button class="btn btn-primary" type="button" id="remove" disabled>删除</button>
 			</div>
 		</div>
+		
+		<!-- 通讯录表格 -->
 		<div class="d-flex mx-5">
 			<div class="flex-grow-1" id="tableList"></div>
 		</div>
+		
+		<!-- 分页 -->
 		<div class="d-flex justify-content-center">
 			<ul class="pagination"></ul>
 		</div>
+		
+		<!-- 新增模态框 -->
+		<div class="modal fade" id="newModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+   
+					<!-- 模态框头部 -->
+					<div class="modal-header">
+						<h4 class="modal-title">新增</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+   
+					<!-- 模态框主体 -->
+					<div class="modal-body">
+						<div class="d-flex">
+							<div class="input-group mr-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">姓名</span>
+								</div>
+								<input type="text" class="form-control" name="name">
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">性别</span>
+								</div>
+								<div class="radio ml-2" style="margin-top: 0.4rem">
+									<label><input class="mx-1" type="radio" name="sex">男</label>
+									<label><input class="mx-1" type="radio" name="sex">女</label>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex mt-3">
+							<div class="input-group mr-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">部门</span>
+								</div>
+								<select class="form-control" name="dept">
+									<option>经理层</option>
+									<option>综合管理部</option>
+									<option>营销部</option>
+									<option>人力资源部</option>
+									<option>ERP开发部</option>
+									<option>ERP实施部</option>
+									<option>平台产品部</option>
+									<option>实时控制部</option>
+									<option>信息安全部</option>
+									<option>信息技术中心</option>
+									<option>政治工作部</option>
+									<option>商业运营部</option>
+									<option>纪检监察部</option>
+									<option>供应链管理部</option>
+									<option>财务资产部</option>
+									<option>集团运维中心</option>
+								</select>
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">职位</span>
+								</div>
+								<input type="text" class="form-control" id="name">
+							</div>
+						</div>
+						<div class="d-flex mt-3">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">电话</span>
+								</div>
+								<input type="text" class="form-control" id="name">
+							</div>
+						</div>
+						<div class="d-flex mt-3">
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text">邮箱</span>
+								</div>
+								<input type="text" class="form-control" id="name">
+							</div>
+						</div>
+					</div>
+   
+					<!-- 模态框底部 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addContact()">提交</button>
+					</div>   
+				</div>
+			</div>
+		</div>
 		<script src="js/paging.js"></script>
+		<script src="js/contacts.js"></script>
 	</body>
 </html>

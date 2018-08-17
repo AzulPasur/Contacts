@@ -34,8 +34,8 @@ function hasPrev(){
 }
 //跳转指定页
 function goToPage(n){
-	$(".active").attr("class", "page-item");
-	$("#"+n).attr("class", "page-item active");
+	$(".active").removeClass("active");
+	$("#"+n).addClass("active");
 	tableList = $("#tableList");
 	$("table").each(function(){
 		table = $(this);//获取当前元素
