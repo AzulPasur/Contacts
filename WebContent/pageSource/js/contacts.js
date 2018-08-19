@@ -4,15 +4,19 @@
 
 //页面初始化
 $("#wd").val("");
-$("option").click(function(){
-	$("select").removeAttr("size");
-	$("select").blur();
-	//$(this).attr("selected","");
+//easydropdown.all();
+/*let show = $("[name='dept']");
+let words = $("[name='selectdept']");
+show.click(function(){
+	words.attr("style","display:block");//style.display = 'block';
 });
 
-$("select").focus(function(){
-	$("select").attr("size","5");
-})
+words.click(function(){
+	var option = $(this).children("selected");
+	show.val(words.val());
+	words.attr("style","display:none");
+});*/
+
 $.ajax({
 	url :"/Contacts/show",
 	async :true,
@@ -42,6 +46,7 @@ function findContacts(wd){
 			$(".pagination").empty();
 			if(data.length==0){
 				tableList.append("<p>无搜索结果</p>");
+				console.log("无搜索结果");
 			} else {
 				buildTable(data, tableList);
 			}
