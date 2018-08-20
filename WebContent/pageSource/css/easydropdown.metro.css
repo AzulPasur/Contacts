@@ -28,9 +28,9 @@
 
 .dropdown{
 	position: relative;
-	width: 100%;
+	-ms-flex-positive: 1 !important;
+	flex-grow: 1 !important;
 	height: calc(2.25rem + 2px);
-	padding: 0.375rem 0.75rem;
 	font-size: 1rem;
 	cursor: pointer;
 	font-weight: 200;
@@ -38,7 +38,7 @@
 	background-color: #fff;
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
-	border-radius: 0.25rem;
+	border-radius: 0 0.25rem 0.25rem 0;
 	color: #495057;
 	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 	-webkit-user-select: none;
@@ -54,6 +54,11 @@
 	background: #fff;
 }
 
+.dropdown.focus{
+	border-color: #80bdff;
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 .dropdown:after{
 	content: '';
 	position: absolute;
@@ -65,7 +70,7 @@
 }
 
 .dropdown.focus:after{
-	background: #0180d1;
+	background: #007bff;
 }
 
 /* CARAT */
@@ -91,11 +96,11 @@
 .dropdown .carat:after{
 	margin-top: -10px;
 	right: -8px;
-	border-top-color: #f8f8f8;
+	border-top-color: #fff;
 }
 
 .dropdown:hover .carat:after{
-	border-top-color: #f4f4f4;
+	border-top-color: #fff;
 }
 
 .dropdown.focus .carat{
@@ -103,7 +108,7 @@
 }
 
 .dropdown.focus .carat:after{
-	border-top-color: #0180d1;
+	border-top-color: #007bff;
 }
 
 .dropdown.open .carat{
@@ -180,8 +185,8 @@
 	top: 100%;
 	border-width: 1px;
 	border-color: #ced4da;
-	border-style: none solid solid;
-	border-radius: 0.25rem;
+	border-style: solid;
+	border-radius: 0 0.25rem 0.25rem 0.25rem;
 	background: #fff;
 	overflow: hidden;
 	opacity: 0;
@@ -225,6 +230,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+	padding: 0;
 	height: 100%;
 	width: 100%;
 	list-style: none;
@@ -239,19 +245,19 @@
 
 .dropdown li{
 	list-style: none;
-	padding: 0.375rem 0.75rem;
+	/*padding: 0.375rem 0.75rem*/;
 }
 
 /* .focus class is also added on hover */
 
 .dropdown li.focus{
-	background: #0180d1;
+	background: #007bff;
 	position: relative;
 	z-index: 3;
 	color: #fff;
 }
 
 .dropdown li.active{
-	background: #0180d1;
+	background: #007bff;
 	color: #fff;
 }
