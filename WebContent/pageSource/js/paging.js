@@ -35,8 +35,7 @@ function hasPrev(){
 //跳转指定页
 function goToPage(n){
 	$(".active").removeClass("active");
-	$("#"+n).addClass("active");
-	tableList = $("#tableList");
+	$("#page"+n).addClass("active");
 	$("table").each(function(){
 		table = $(this);//获取当前元素
 		if(table.attr("id")==("table"+n)){
@@ -61,7 +60,7 @@ function initPaging(){
 		} else {
 			active="";
 		}
-		ul.append('<li class="page-item '+active+'" id="'+currentNum+'">' +
+		ul.append('<li class="page-item '+active+'" id="page'+currentNum+'">' +
 			'<a class="page-link" href="#" onclick="goToPage('+currentNum+')">'+currentNum+'</a>' +
 		'</li>');
 	}

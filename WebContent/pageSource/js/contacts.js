@@ -72,7 +72,30 @@ function addContact(){
 		"<td>手机</td>" +
 		"<td>邮箱</td>" +
 	"</tr>");*/
-	
+	cname=$("#newModal [name='name']");
+	sex=$("#newModal [name='sex']:checked");
+	dept=$("#newModal [name='dept']");
+	post=$("#newModal [name='post']");
+	mobile=$("#newModal [name='mobile']");
+	email=$("#newModal [name='email']");
+	data="{name:"+cname.val()+", sex:"+sex.val()+", dept:"+dept.val()+", post:"+post.val()+", mobile:"+mobile.val()+", email:"+email.val()+"}"
+	$.ajax({
+		url :"/Contacts/add",
+		async :true,
+		type :"post",
+		datatype :"json",
+		data :data,
+		contentType : "application/json; charset=utf-8",
+		success :function(data){
+			console.log(success);
+		},
+		error :function(XMLHttpRequest, textStatus){
+			console.log(textStatus);
+		},
+		complete :function(XMLHttpRequest,textStatus){
+			console.log(textStatus);
+		}
+	});
 }
 
 //构建表格

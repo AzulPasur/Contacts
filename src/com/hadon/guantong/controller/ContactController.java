@@ -47,4 +47,10 @@ public class ContactController {
 		contacts.remove(null);
         return contacts;
     }
+	
+	@RequestMapping(value = "/add")
+    public @ResponseBody String addContact(@RequestBody Contact contact) {
+		contactService.addContact(contact);
+        return "{result:success}";
+    }
 }

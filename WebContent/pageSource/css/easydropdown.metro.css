@@ -245,7 +245,7 @@
 
 .dropdown li{
 	list-style: none;
-	/*padding: 0.375rem 0.75rem*/;
+	padding: 0.375rem 0.75rem;
 }
 
 /* .focus class is also added on hover */
