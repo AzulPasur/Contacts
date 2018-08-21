@@ -3,7 +3,7 @@
  */
 
 var activePage = $(".active").attr("id");
-var pageNum;
+var pageNum=0;
 
 //下一页
 function nextPage(){

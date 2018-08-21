@@ -51,6 +51,6 @@ public class ContactController {
 	@RequestMapping(value = "/add")
     public @ResponseBody String addContact(@RequestBody Contact contact) {
 		contactService.addContact(contact);
-        return "{result:success}";
+        return "{\"Msg\":\"插入成功\"}";
     }
 }

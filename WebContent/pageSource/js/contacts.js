@@ -72,22 +72,30 @@ function addContact(){
 		"<td>手机</td>" +
 		"<td>邮箱</td>" +
 	"</tr>");*/
-	cname=$("#newModal [name='name']");
-	sex=$("#newModal [name='sex']:checked");
-	dept=$("#newModal [name='dept']");
-	post=$("#newModal [name='post']");
-	mobile=$("#newModal [name='mobile']");
-	email=$("#newModal [name='email']");
-	data="{name:"+cname.val()+", sex:"+sex.val()+", dept:"+dept.val()+", post:"+post.val()+", mobile:"+mobile.val()+", email:"+email.val()+"}"
+	contact=new Object();
+	contact.name=$("#newModal [name='name']").val();
+	contact.sex=$("#newModal [name='sex']:checked").val()!=0;
+	contact.dept=$("#newModal [name='dept']").val();
+	contact.post=$("#newModal [name='post']").val();
+	contact.mobile=$("#newModal [name='mobile']").val();
+	contact.email=$("#newModal [name='email']").val();
 	$.ajax({
 		url :"/Contacts/add",
 		async :true,
 		type :"post",
 		datatype :"json",
-		data :data,
+		data :JSON.stringify(contact),
 		contentType : "application/json; charset=utf-8",
 		success :function(data){
-			console.log(success);
+			body=$("body");
+			body.empty();
+			delay=5;
+			body.append('<div class="alert alert-success">' +
+				'<strong>新增成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
+			'</div>' +
+			'<script>' + 
+				'delayURL("http://localhost:8080/Contacts/");' + 
+			'</script>');
 		},
 		error :function(XMLHttpRequest, textStatus){
 			console.log(textStatus);
