@@ -53,4 +53,10 @@ public class ContactController {
 		contactService.addContact(contact);
         return "{\"Msg\":\"插入成功\"}";
     }
+	
+	@RequestMapping(value = "/update")
+    public @ResponseBody String updateContact(@RequestBody Contact contact) {
+		contactService.updateContact(contact);
+        return "{\"Msg\":\"修改成功\"}";
+    }
 }
