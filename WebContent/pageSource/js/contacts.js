@@ -99,7 +99,15 @@ function addContact(){
 			'</script>');
 		},
 		error :function(XMLHttpRequest, textStatus){
-			console.log(textStatus);
+			body=$("body");
+			body.empty();
+			delay=5;
+			body.append('<div class="alert alert-danger">' +
+				'<strong>新增失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
+			'</div>' +
+			'<script>' + 
+				'delayURL("http://localhost:8080/Contacts/");' + 
+			'</script>');
 		},
 		complete :function(XMLHttpRequest,textStatus){
 			console.log(textStatus);
@@ -137,7 +145,15 @@ function updateContact(){
 			'</script>');
 		},
 		error :function(XMLHttpRequest, textStatus){
-			console.log(textStatus);
+			body=$("body");
+			body.empty();
+			delay=5;
+			body.append('<div class="alert alert-danger">' +
+				'<strong>修改失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
+			'</div>' +
+			'<script>' + 
+				'delayURL("http://localhost:8080/Contacts/");' + 
+			'</script>');
 		},
 		complete :function(XMLHttpRequest,textStatus){
 			console.log(textStatus);
@@ -145,6 +161,42 @@ function updateContact(){
 	});
 }
 
+function deleteContact(){
+	console.log("delete contact "+$("tr.table-primary [name='name']").text());
+	id=$("tr.table-primary [name='id']").text();
+	$.ajax({
+		url :"/Contacts/delete",
+		async :true,
+		type :"post",
+		datatype :"json",
+		data :{id : id},
+		success :function(data){
+			body=$("body");
+			body.empty();
+			delay=5;
+			body.append('<div class="alert alert-success">' +
+				'<strong>删除成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
+			'</div>' +
+			'<script>' + 
+				'delayURL("http://localhost:8080/Contacts/");' + 
+			'</script>');
+		},
+		error :function(XMLHttpRequest, textStatus){
+			body=$("body");
+			body.empty();
+			delay=5;
+			body.append('<div class="alert alert-danger">' +
+				'<strong>删除失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
+			'</div>' +
+			'<script>' + 
+				'delayURL("http://localhost:8080/Contacts/");' + 
+			'</script>');
+		},
+		complete :function(XMLHttpRequest,textStatus){
+			console.log(textStatus);
+		}
+	});
+}
 //构建表格
 function buildTable(data, tableList){
 	var table;
@@ -198,15 +250,18 @@ function buildTable(data, tableList){
 		$(this).addClass("table-primary");
 		$("#modify").attr("disabled", false);
 		$("#remove").attr("disabled", false);
-		//模态框中预加载原始数据
-		$("#updateModal [name='name']").val($(this).children("[name='name']").text());
-		$("#updateModal [value='" + (($(this).children("[name='sex']").text()=="男")?"1":"0") + "']").attr("checked", true);
-		$("#updateModal ul li:contains(" + $(this).children("[name='dept']").text() + ")").click();//由于使用了easydropdown，通过li的click事件完成加载
-		$("#updateModal [name='post']").val($(this).children("[name='post']").text());
-		$("#updateModal [name='mobile']").val($(this).children("[name='mobile']").text());
-		$("#updateModal [name='email']").val($(this).children("[name='email']").text());
 	});
 	if(pageNum){
 		initPaging();
 	}
+}
+
+//模态框中预加载原始数据
+function loadModal(){
+	$("#updateModal [name='name']").val($("tr.table-primary [name='name']").text());
+	$("#updateModal [value='" + (($("tr.table-primary [name='sex']").text()=="男")?"1":"0") + "']").click();
+	$("#updateModal ul li:contains(" + $("tr.table-primary [name='dept']").text() + ")").click();//由于使用了easydropdown，通过li的click事件完成加载
+	$("#updateModal [name='post']").val($("tr.table-primary [name='post']").text());
+	$("#updateModal [name='mobile']").val($("tr.table-primary [name='mobile']").text());
+	$("#updateModal [name='email']").val($("tr.table-primary [name='email']").text());
 }

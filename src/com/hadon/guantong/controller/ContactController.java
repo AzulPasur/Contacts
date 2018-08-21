@@ -59,4 +59,10 @@ public class ContactController {
 		contactService.updateContact(contact);
         return "{\"Msg\":\"修改成功\"}";
     }
+	
+	@RequestMapping(value = "/delete")
+    public @ResponseBody String deleteContact(int id) {
+		contactService.deleteContact(id);
+        return "{\"Msg\":\"删除成功\"}";
+    }
 }
