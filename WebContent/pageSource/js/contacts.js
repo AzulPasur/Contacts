@@ -91,23 +91,31 @@ function addContact(){
 			body=$("body");
 			body.empty();
 			delay=5;
-			body.append('<div class="alert alert-success">' +
-				'<strong>新增成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
-			'</div>' +
-			'<script>' + 
-				'delayURL("http://localhost:8080/Contacts/");' + 
-			'</script>');
+			body.append('<div class="d-flex justify-content-center mt-5">' + 
+				'<div class="d-flex">' +
+					'<div class="alert alert-success text-center">' +
+						'<strong>新增成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/" class="alert-link">此处</a> 。' +  
+					'</div>' +
+					'<script>' + 
+						'delayURL("http://localhost:8080/Contacts/");' + 
+					'</script>' +
+				'</div>' + 
+			'</div>');
 		},
 		error :function(XMLHttpRequest, textStatus){
 			body=$("body");
 			body.empty();
 			delay=5;
-			body.append('<div class="alert alert-danger">' +
-				'<strong>新增失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
-			'</div>' +
-			'<script>' + 
-				'delayURL("http://localhost:8080/Contacts/");' + 
-			'</script>');
+			body.append('<div class="d-flex justify-content-center mt-5">' + 
+				'<div class="d-flex">' + 
+					'<div class="alert alert-danger">' +
+						'<strong>新增失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/" class="alert-link">此处</a> 。' +  
+					'</div>' +
+					'<script>' + 
+						'delayURL("http://localhost:8080/Contacts/");' + 
+					'</script>' +
+				'</div>' + 
+			'</div>');
 		},
 		complete :function(XMLHttpRequest,textStatus){
 			console.log(textStatus);
@@ -137,23 +145,31 @@ function updateContact(){
 			body=$("body");
 			body.empty();
 			delay=5;
-			body.append('<div class="alert alert-success">' +
-				'<strong>修改成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
-			'</div>' +
-			'<script>' + 
-				'delayURL("http://localhost:8080/Contacts/");' + 
-			'</script>');
+			body.append('<div class="d-flex justify-content-center mt-5">' + 
+				'<div class="d-flex">' +
+					'<div class="alert alert-success text-center">' +
+						'<strong>修改成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/" class="alert-link">此处</a> 。' +  
+					'</div>' +
+					'<script>' + 
+						'delayURL("http://localhost:8080/Contacts/");' + 
+					'</script>' +
+				'</div>' + 
+			'</div>');
 		},
 		error :function(XMLHttpRequest, textStatus){
 			body=$("body");
 			body.empty();
 			delay=5;
-			body.append('<div class="alert alert-danger">' +
-				'<strong>修改失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
-			'</div>' +
-			'<script>' + 
-				'delayURL("http://localhost:8080/Contacts/");' + 
-			'</script>');
+			body.append('<div class="d-flex justify-content-center mt-5">' + 
+				'<div class="d-flex">' + 
+					'<div class="alert alert-danger">' +
+						'<strong>修改失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/" class="alert-link">此处</a> 。' +  
+					'</div>' +
+					'<script>' + 
+						'delayURL("http://localhost:8080/Contacts/");' + 
+					'</script>' +
+				'</div>' + 
+			'</div>');
 		},
 		complete :function(XMLHttpRequest,textStatus){
 			console.log(textStatus);
@@ -174,23 +190,31 @@ function deleteContact(){
 			body=$("body");
 			body.empty();
 			delay=5;
-			body.append('<div class="alert alert-success">' +
-				'<strong>删除成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
-			'</div>' +
-			'<script>' + 
-				'delayURL("http://localhost:8080/Contacts/");' + 
-			'</script>');
+			body.append('<div class="d-flex justify-content-center mt-5">' + 
+				'<div class="d-flex">' +
+					'<div class="alert alert-success text-center">' +
+						'<strong>删除成功!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/" class="alert-link">此处</a> 。' +  
+					'</div>' +
+					'<script>' + 
+						'delayURL("http://localhost:8080/Contacts/");' + 
+					'</script>' +
+				'</div>' + 
+			'</div>');
 		},
 		error :function(XMLHttpRequest, textStatus){
 			body=$("body");
 			body.empty();
 			delay=5;
-			body.append('<div class="alert alert-danger">' +
-				'<strong>删除失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/">此处</a> 。' +  
-			'</div>' +
-			'<script>' + 
-				'delayURL("http://localhost:8080/Contacts/");' + 
-			'</script>');
+			body.append('<div class="d-flex justify-content-center mt-5">' + 
+				'<div class="d-flex">' + 
+					'<div class="alert alert-danger">' +
+						'<strong删除失败!</strong> 页面将在&nbsp;<b id="time" >' + delay +'</b>&nbsp;秒后自动跳转，若没有跳转，请点击<a href="http://localhost:8080/Contacts/" class="alert-link">此处</a> 。' +  
+					'</div>' +
+					'<script>' + 
+						'delayURL("http://localhost:8080/Contacts/");' + 
+					'</script>' +
+				'</div>' + 
+			'</div>');
 		},
 		complete :function(XMLHttpRequest,textStatus){
 			console.log(textStatus);
