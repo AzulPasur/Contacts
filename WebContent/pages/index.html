@@ -147,7 +147,7 @@
 					</div>
 
   			 		<!-- 模态框主体 -->
-					<div class="modal-body">
+					<div class="modal-body" onchange="isChange()">
 						<div class="d-flex">
 							<div class="input-group mr-3">
 								<div class="input-group-prepend">
@@ -220,7 +220,7 @@
  
 					<!-- 模态框底部 -->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="updateContact()">提交</button>
+						<button type="button" id=doupdate class="btn btn-secondary" data-dismiss="modal" onclick="updateContact()" disabled>提交</button>
 					</div>   
 				</div>
 			</div>

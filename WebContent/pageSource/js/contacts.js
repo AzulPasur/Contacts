@@ -264,4 +264,32 @@ function loadModal(){
 	$("#updateModal [name='post']").val($("tr.table-primary [name='post']").text());
 	$("#updateModal [name='mobile']").val($("tr.table-primary [name='mobile']").text());
 	$("#updateModal [name='email']").val($("tr.table-primary [name='email']").text());
+	isChange();
+}
+
+//判断模态框是否被修改
+function isChange(){
+	modal=$("#updateModal");
+	console.log(modal.find("[name='mobile']").val());
+	console.log($("tr.table-primary [name='mobile']").text());
+	if(modal.find("[name='name']").val() != $("tr.table-primary [name='name']").text() ||
+			modal.find("[name='sex']:checked").val() != (($("tr.table-primary [name='sex']").text()=="男")?"1":"0") ||
+			modal.find("[name='dept']").val() != $("tr.table-primary [name='dept']").text() ||
+			modal.find("[name='post']").val() != $("tr.table-primary [name='post']").text() ||
+			modal.find("[name='mobile']").val() != $("tr.table-primary [name='mobile']").text() ||
+			modal.find("[name='email']").val() != $("tr.table-primary [name='email']").text()){
+		$("#doupdate").attr("disabled", false);
+		$("#doupdate").removeClass("btn-secondary");
+		$("#doupdate").addClass("btn-primary");
+	} else {
+		$("#doupdate").attr("disabled", true);
+		$("#doupdate").removeClass("btn-primary");
+		$("#doupdate").addClass("btn-secondary");
+	}
+		/*contact.name=$("#addModal [name='name']").val();
+	contact.sex=$("#addModal [name='sex']:checked").val()!=0;
+	contact.dept=$("#addModal [name='dept']").val();
+	contact.post=$("#addModal [name='post']").val();
+	contact.mobile=$("#addModal [name='mobile']").val();
+	contact.email=$("#addModal [name='email']").val();*/
 }

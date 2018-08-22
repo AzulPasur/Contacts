@@ -1,6 +1,8 @@
 package com.hadon.guantong.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
 //import javax.servlet.http.HttpServletRequest;
@@ -42,8 +44,13 @@ public class ContactController {
 	
 	@RequestMapping(value = "/find")
 	public @ResponseBody List<Contact> findContacts(String keyWord) {
-		List<Contact> contacts = contactService.findContactsByName(keyWord);
-		contacts.add(contactService.findContactByMobile(keyWord));
+		List<Contact> contacts = new ArrayList<>();
+		 Pattern pattern = Pattern.compile("^[\\d]+$");  
+		if (pattern.matcher(keyWord).matches()) {
+			contacts.add(contactService.findContactByMobile(keyWord));
+		} else {
+			contacts = contactService.findContactsByName(keyWord);
+		}
 		contacts.remove(null);
         return contacts;
     }
