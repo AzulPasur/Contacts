@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.easydropdown.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/easydropdown.metro.css" />
+</head>
+<body>
+	<div class="modal-body">
+		<div class="d-flex">
+			<div class="input-group mr-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">姓名</span>
+				</div>
+				<input type="text" class="form-control" name="name">
+			</div>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">性别</span>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline ml-2"
+					style="margin-top: 0.4rem">
+					<input class="custom-control-input" type="radio" name="sex"
+						id="radio1" value="1"> <label class="custom-control-label"
+						for="radio1">男</label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline"
+					style="margin-top: 0.4rem">
+					<input class="custom-control-input" type="radio" name="sex"
+						id="radio2" value="0"> <label class="custom-control-label"
+						for="radio2">女</label>
+				</div>
+			</div>
+		</div>
+		<div class="d-flex mt-3">
+			<div class="input-group mr-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">部门</span>
+				</div>
+				<select class="dropdown" data-settings='{"cutOff":5}' name="dept">
+					<option>经理层</option>
+					<option>综合管理部</option>
+					<option>营销部</option>
+					<option>人力资源部</option>
+					<option>ERP开发部</option>
+					<option>ERP实施部</option>
+					<option>平台产品部</option>
+					<option>实时控制部</option>
+					<option>信息安全部</option>
+					<option>信息技术中心</option>
+					<option>政治工作部</option>
+					<option>商业运营部</option>
+					<option>纪检监察部</option>
+					<option>供应链管理部</option>
+					<option>财务资产部</option>
+					<option>集团运维中心</option>
+				</select>
+			</div>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">职位</span>
+				</div>
+				<input type="text" class="form-control" name="post">
+			</div>
+		</div>
+		<div class="d-flex mt-3">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">电话</span>
+				</div>
+				<input type="text" class="form-control" name="mobile">
+			</div>
+		</div>
+		<div class="d-flex mt-3">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">邮箱</span>
+				</div>
+				<input type="text" class="form-control" name="email">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
